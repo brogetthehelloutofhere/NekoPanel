@@ -1,0 +1,4 @@
+# EXAMPLE ONLY — edit service name/paths to match your install.
+# Install with: sudo visudo -f /etc/sudoers.d/nekopanel
+# Keep this allowlist narrow. Do not grant NOPASSWD: ALL.
+nekopanel ALL=(root) NOPASSWD: /usr/bin/systemctl is-active minecraft, /usr/bin/systemctl show minecraft --property=MemoryCurrent --value, /usr/bin/systemctl start minecraft, /usr/bin/systemctl stop minecraft, /usr/bin/systemctl restart minecraft, /usr/bin/journalctl -u minecraft.service -n 250 --no-pager -o short-iso
