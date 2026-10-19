@@ -1,0 +1,20 @@
+[Unit]
+Description=NekoPanel Minecraft Control Panel
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=simple
+User=nekopanel
+Group=nekopanel
+WorkingDirectory=/opt/nekopanel
+EnvironmentFile=/etc/nekopanel/nekopanel.env
+ExecStart=/usr/bin/node /opt/nekopanel/src/server.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/opt/nekopanel/backups
+ProtectHome=true
+[Install]
+WantedBy=multi-user.target
